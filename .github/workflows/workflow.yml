@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  build_config_service:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: adopt
+          java-version: 11
