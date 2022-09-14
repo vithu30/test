@@ -18,3 +18,9 @@ jobs:
           fetch-depth: '0'
       - name: build module
         run: mvn clean install
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2
+          restore-keys: ${{ runner.os }}-m2
