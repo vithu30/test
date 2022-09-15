@@ -11,11 +11,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: adopt
-          java-version: 11
-      - name: Configure git for private modules
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: git config --global url."https://${TOKEN}:@github.com".insteadOf "https://github.com"          
+          java-version: 11        
       - name: checkout common
         uses: actions/checkout@v2
         with:
@@ -24,6 +20,10 @@ jobs:
           fetch-depth: '10'
           path: temp
           ref: refs/heads/dev
+      - name: Configure git modules
+        env:
+          TOKEN: ${{ secrets.OAUTH_TOKEN }}
+        run: git config --global url."https://${TOKEN}:@github.com".insteadOf "https://github.com"            
       - name: build module
         run: mvn clean install --file temp/pom.xml          
       - name: checkout branch
