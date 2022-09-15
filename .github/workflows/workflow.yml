@@ -17,6 +17,7 @@ jobs:
         with:
           repository: SPHTech/archival-newslink-common-dto-service    
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: '10'
           path: temp
           ref: refs/heads/dev
       - name: build module
