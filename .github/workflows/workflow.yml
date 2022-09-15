@@ -18,7 +18,7 @@ jobs:
           repository: SPHTech/archival-newslink-common-dto-service    
           token: ${{ secrets.GITHUB_TOKEN }}
           path: temp
-          ref: dev
+          ref: refs/heads/dev
       - name: build module
         run: mvn clean install --file temp/pom.xml          
       - name: checkout branch
