@@ -12,6 +12,10 @@ jobs:
         with:
           distribution: adopt
           java-version: 11
+      - name: Configure git for private modules
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git config --global url."https://${TOKEN}:@github.com".insteadOf "https://github.com"          
       - name: checkout common
         uses: actions/checkout@v2
         with:
