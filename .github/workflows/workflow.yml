@@ -12,6 +12,15 @@ jobs:
         with:
           distribution: adopt
           java-version: 11
+      - name: checkout common
+        uses: actions/checkout@v3
+        with:
+          repository: SPHTech/archival-newslink-common-dto-service    
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: temp
+          ref: dev
+      - name: build module
+        run: mvn clean install --file temp/pom.xml          
       - name: checkout branch
         uses: actions/checkout@v3
         with:
