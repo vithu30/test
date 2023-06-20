@@ -1,4 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <h1>h</h1>
+  <head>
+    <title>API Documentation</title>
+    <script src="redoc.standalone.js"></script>
+  </head>
+  <body>
+    <div id="redoc-container"></div>
+    <script>
+      Redoc.init('./openapi.json', {
+        expandResponses: 'all',
+        hideDownloadButton: true,
+      });
+    </script>
+  </body>
 </html>
