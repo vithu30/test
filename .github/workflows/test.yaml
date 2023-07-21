@@ -30,7 +30,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: show python path
         run: |
-          python -c "import sys; sys.path.append("/home/runner/work/test/test/commonutils")"   
+          python -c "import sys; sys.path.append('/home/runner/work/test/test/commonutils')"   
 
       - name: Execute tests
         working-directory: ./api
