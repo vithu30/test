@@ -35,7 +35,7 @@ jobs:
         run: |
           export PYTHONPATH=$GITHUB_WORKSPACE/commonutils
           echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV  
-          echo "::set-env name=PYTHONPATH::home/runner/work/test/test/commonutils"  
+          echo "PYTHONPATH=/home/runner/work/test/test/commonutils" >> $GITHUB_ENV
       - name: Execute tests
         working-directory: ./api
         env:
