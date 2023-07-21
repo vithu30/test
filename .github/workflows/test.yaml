@@ -36,6 +36,6 @@ jobs:
           echo "111111"
           pwd
           echo "22222"
-          export PYTHONPATH="$PYTHONPATH:/lib.zip"
+          export PYTHONPATH="$(pwd)/lib.zip"
           echo $PYTHONPATH
           ls
