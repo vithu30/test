@@ -28,6 +28,9 @@ jobs:
           pip install uvicorn
           pip install httpx
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: show python path
+        run: |
+          python -c "import sys; print('\n'.join(sys.path))"    
       - name: Execute tests
         working-directory: ./api
         run: |
