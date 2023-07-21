@@ -33,7 +33,8 @@ jobs:
           python -c "import sys; print('\n'.join(sys.path))"   
       - name: Set env
         run: |
-           echo "PYTHONPATH=$GITHUB_WORKSPACE/commonutils" >> $GITHUB_ENV    
+          export PYTHONPATH=$GITHUB_WORKSPACE/commonutils
+          echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV    
       - name: Execute tests
         working-directory: ./api
         env:
