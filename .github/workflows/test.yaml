@@ -33,9 +33,9 @@ jobs:
           python -c "import sys; print('\n'.join(sys.path))"   
       - name: Set env
         run: |
-          export PYTHONPATH=$GITHUB_WORKSPACE/commonutils
-          echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV  
-          echo "PYTHONPATH=/home/runner/work/test/test/commonutils" >> $GITHUB_ENV
+          cd commonutils
+          cp -r * /opt/temp/Python/3.11.4/x64/lib/python3.11/site-packages/
+
       - name: Execute tests
         working-directory: ./api
         env:
