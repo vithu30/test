@@ -31,19 +31,15 @@ jobs:
       - name: show python path
         run: |
           python -c "import sys; print('\n'.join(sys.path))"   
-      - name: Create commonutils zip file
+      - name: Set env
         run: |
-          cd commonutils
-          zip -r ../lib.zip .
-          PYTHONPATH="$GITHUB_WORKSPACE/lib.zip"
-          echo "export PYTHONPATH=$GITHUB_WORKSPACE/commonutils" >> $GITHUB_ENV
-          echo $PYTHONPATH     
+           echo "PYTHONPATH=$GITHUB_WORKSPACE/commonutils" >> $GITHUB_ENV    
       - name: Execute tests
         working-directory: ./api
         env:
           PYTHONPATH: ${{ env.PYTHONPATH }}
         run: |
           echo "111111"
-          pwd
+          echo $PYTHONPATH
           echo "22222"
           pytest tests.py
