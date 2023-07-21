@@ -33,4 +33,4 @@ jobs:
       - name: Execute Bash script
         run: |
           ls
-          sh ./github/workflows/test.sh
+          sh ./.github/workflows/test.sh
