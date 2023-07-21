@@ -36,7 +36,7 @@ jobs:
           cd commonutils
           zip -r ../lib.zip .
           PYTHONPATH="$GITHUB_WORKSPACE/lib.zip"
-          echo "export PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
+          echo "export PYTHONPATH=$GITHUB_WORKSPACE/commonutils" >> $GITHUB_ENV
           echo $PYTHONPATH     
       - name: Execute tests
         working-directory: ./api
