@@ -31,4 +31,6 @@ jobs:
           pip install build  
 
       - name: Execute Bash script
-        run: sh test.sh
+        run: |
+          ls
+          sh test.sh
