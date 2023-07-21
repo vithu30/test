@@ -30,11 +30,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: show python path
         run: |
-          python -c "import sys; print('\n'.join(sys.path))"   
-      - name: Set env
-        run: |
-          cd commonutils
-          cp -r * /opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/
+          python -c "import sys; sys.path.append("/home/runner/work/test/test/commonutils")"   
 
       - name: Execute tests
         working-directory: ./api
