@@ -30,9 +30,17 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: show python path
         run: |
-          python -c "import sys; print('\n'.join(sys.path))"    
+          python -c "import sys; print('\n'.join(sys.path))"   
+      - name: Create commonutils zip file
+        run: |
+          zip -r lib.zip commonutils
+          PYTHONPATH="$GITHUB_WORKSPACE/lib.zip"
+          echo "export PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
+          echo $PYTHONPATH     
       - name: Execute tests
         working-directory: ./api
+        env:
+          PYTHONPATH: ${{ env.PYTHONPATH }}
         run: |
           echo "111111"
           pwd
