@@ -34,7 +34,7 @@ jobs:
       - name: Set env
         run: |
           cd commonutils
-          sudo cp -r * /opt/temp/Python/3.11.4/x64/lib/python3.11/site-packages/
+          cp -r * /opt/hostedtoolcache/Python/3.11.4/x64/lib/python3.11/site-packages/
 
       - name: Execute tests
         working-directory: ./api
