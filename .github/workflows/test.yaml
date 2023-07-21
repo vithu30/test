@@ -33,7 +33,8 @@ jobs:
           python -c "import sys; print('\n'.join(sys.path))"   
       - name: Create commonutils zip file
         run: |
-          zip -r lib.zip commonutils
+          cd commonutils
+          zip -r ../lib.zip .
           PYTHONPATH="$GITHUB_WORKSPACE/lib.zip"
           echo "export PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
           echo $PYTHONPATH     
