@@ -33,13 +33,5 @@ jobs:
         working-directory: ./commonutils
         run: python -m build    
 
-      - name: Execute tests
-        env:
-          PYTHONPATH: ${{ env.PYTHONPATH }}
-        run: |
-          echo "111111"
-          echo $PYTHONPATH
-          echo "22222"
-          zip -r lib.zip commonutils
-          python -c "import sys; sys.path.append('/home/runner/work/test/test/commonutils.zip')"
-          pytest ./api/tests.py
+      - name: Execute Bash script
+        run: bash ./test.sh
