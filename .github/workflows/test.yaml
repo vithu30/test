@@ -33,7 +33,9 @@ jobs:
           touch test.db
       - name: Execute tests
         run: |
+          echo "111111"
           echo $PYTHONPATH
+          echo "22222"
           export PYTHONPATH="$PYTHONPATH:/lib.zip"
           echo $PYTHONPATH
           ls
