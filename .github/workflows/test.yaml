@@ -32,7 +32,6 @@ jobs:
         run: |
           touch test.db
       - name: Execute tests
-        working-directory: ./config-apis
         run: |
           echo $PYTHONPATH
           echo "PYTHONPATH=$PYTHONPATH:/lib.zip" >> $GITHUB_ENV
