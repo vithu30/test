@@ -34,7 +34,7 @@ jobs:
       - name: Execute tests
         run: |
           echo "111111"
-          PWD
+          pwd
           echo "22222"
           export PYTHONPATH="$PYTHONPATH:/lib.zip"
           echo $PYTHONPATH
