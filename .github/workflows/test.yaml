@@ -28,7 +28,7 @@ jobs:
           pip install uvicorn
           pip install httpx
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install -e ./commonutils
+          python -m pip install ./commonutils
 
       - name: Execute tests
         env:
