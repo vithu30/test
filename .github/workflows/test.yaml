@@ -36,4 +36,4 @@ jobs:
           echo $PYTHONPATH
           echo "PYTHONPATH=$PYTHONPATH:/lib.zip" >> $GITHUB_ENV
           echo $PYTHONPATH
-          echo ls
+          ls
