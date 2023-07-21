@@ -28,9 +28,6 @@ jobs:
           pip install uvicorn
           pip install httpx
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: show python path
-        run: |
-          python -c "import sys; sys.path.append('/home/runner/work/test/test/commonutils')"   
 
       - name: Execute tests
         env:
@@ -39,4 +36,6 @@ jobs:
           echo "111111"
           echo $PYTHONPATH
           echo "22222"
+          zip -r lib.zip commonutils
+          python -c "import sys; sys.path.append('/home/runner/work/test/test/commonutils.zip')"
           pytest ./api/tests.py
