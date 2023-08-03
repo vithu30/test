@@ -2,5 +2,5 @@
 authors = ["vithu30"]
 language = "en"
 multilingual = false
-src = "src"
+src = "docs-src"
 title = "test"
