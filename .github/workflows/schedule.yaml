@@ -1,0 +1,39 @@
+name: Execute test
+run-name: test-${{ inputs.env || 'dev' }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment of the target"
+        required: true
+        type: choice
+        options:
+          - dev
+          - prd
+      source:
+        description: "Source"
+        required: true
+        type: string
+  schedule:
+    - cron: "12 02 * * 1-5"
+
+jobs:
+  if_scheduled:
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        env: [dev, prd]
+    name: Scheduled tests 
+    runs-on: ubuntu-latest
+    if: github.event.schedule != null
+
+    steps:
+      - name: Debug environment
+        run: |
+          echo "variables: ${{ toJSON(vars)}}"
+          echo "inputs: ${{ toJSON(inputs)}}"
+          echo "env: ${{ inputs.environment }}"    
+
+    
