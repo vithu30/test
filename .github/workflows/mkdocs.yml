@@ -6,6 +6,10 @@ on:
 
   workflow_dispatch:  
 
+permissions:
+  pages: write
+  id-token: write  
+
 jobs:    
   build_mkdocs:
     runs-on: ubuntu-latest
