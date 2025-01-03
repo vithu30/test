@@ -1,0 +1,23 @@
+name: Publish MkDocs
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:    
+  build_mkdocs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: 3.9
+
+    - run: pip install \
+          mkdocs-material     
+
+    - run: mkdocs gh-deploy --config-file mkdocs/mkdocs.yml --force 
+    
